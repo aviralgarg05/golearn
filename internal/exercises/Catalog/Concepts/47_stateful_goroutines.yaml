@@ -1,0 +1,8 @@
+slug: 47_stateful_goroutines
+title: Stateful Goroutines
+test_regex: ".*"
+hints:
+  - Use channels to send read and write operations to a state-owning goroutine.
+  - Create readOp and writeOp structs with response channels.
+  - The state-owning goroutine uses select to handle operations from channels.
+  - This pattern avoids mutexes by ensuring only one goroutine accesses shared state.
