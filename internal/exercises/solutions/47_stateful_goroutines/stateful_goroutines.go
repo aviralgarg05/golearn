@@ -66,4 +66,7 @@ func (c *Counter) GetValue() int {
 // Close stops the state-owning goroutine
 func (c *Counter) Close() {
 	close(c.done)
+	// Closing these channels ensures cleanup, though calling methods after Close will panic.
+	close(c.reads)
+	close(c.writes)
 }
